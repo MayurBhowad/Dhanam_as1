@@ -33,6 +33,11 @@ input[type="date"]{
   color: #fff;
   font-size: 15px;
   outline: none;
+
+  box-shadow: 2px 5px 8px 0px rgba(0,0,0,0.33);
+-webkit-box-shadow: 2px 5px 8px 0px rgba(0,0,0,0.33);
+-moz-box-shadow: 2px 5px 8px 0px rgba(0,0,0,0.33);
+
 }
 
 ::-webkit-calendar-picker-indicator{
@@ -66,6 +71,18 @@ label{
   justify-content: space-around;
 }
 
+.querybar-sorter-mob{
+  margin: 1rem ;
+  display: none;
+  flex-direction: column;
+
+  select{
+    padding: .5rem .7rem;
+    font-size: 18px;
+    outline: none;
+  }
+}
+
 .select-duration{
   text-align: center;
 }
@@ -78,6 +95,32 @@ label{
     input{
       margin: 0 1rem;
     }
+}
+
+@media only screen and (max-width: 400px) {
+  .division-selector{
+    display: block;
+
+    & > * {
+      margin: .7rem 0;
+    }
+  }
+
+  .qerybar-sorter{
+    display: none;
+  }
+
+  .querybar-sorter-mob{
+    display: flex;
+  }
+
+  .select-duration .calendar{
+    flex-direction: column;
+
+    input{
+      margin: 1rem 0;
+    }
+  }
 }
 
 
@@ -93,8 +136,14 @@ label{
 .card1{
   padding: .5rem;
   border: 1px solid #000;
-  
+
   border-radius: 5px;
+
+  box-shadow: 2px 5px 9px 0px rgba(0,0,0,0.42);
+-webkit-box-shadow: 2px 5px 9px 0px rgba(0,0,0,0.42);
+-moz-box-shadow: 2px 5px 9px 0px rgba(0,0,0,0.42);
+
+cursor: pointer;
   
   h1{
     font-size: 24px;

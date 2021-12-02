@@ -38,6 +38,16 @@ const QueryBar = () => {
                     <label htmlFor="yesturday"> Yesturday</label><br></br>
                 </div>
             </div>
+            <div className="querybar-sorter-mob">
+                <label htmlFor="qb-date">Choose Duration</label>
+
+                <select id="qb-date">
+                    <option value="30">Last month</option>
+                    <option value="7">Last week</option>
+                    <option value="1">Yesturday</option>
+                </select>
+            </div>
+            <div style={{ "text-align": 'center', "margin": "1rem 0 0 0" }} >OR</div>
             <hr />
             <div className="select-duration">
                 <div className='nor'>
@@ -50,7 +60,7 @@ const QueryBar = () => {
                     <input type="date" name="startdate" id="startdate" />
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
