@@ -84,13 +84,17 @@ label{
 
 /**=====CArdt Comp===================================== */
 .card-deck{
+  margin: 1rem 2rem;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(4, 1fr);
 }
 
 .card1{
+  padding: .5rem;
   border: 1px solid #000;
+  
+  border-radius: 5px;
   
   h1{
     font-size: 24px;
@@ -101,6 +105,25 @@ label{
   }
   h4{
     font-size: 18px;
+  }
+}
+
+.bunting{
+  background-image: url(https://i.pinimg.com/originals/c5/71/d6/c571d6cf5434f95f57bde9904053959d.png);
+  Background-size: cover;
+}
+
+@media only screen and (max-width: 800px) {
+  .card-deck{
+    margin: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .card-deck{
+    margin: 1rem;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Event from './components/Event.component';
 import QueryBar from './components/QueryBar.component';
 import { getData } from './services/onlineData.service';
 
@@ -16,6 +17,7 @@ const App = () => {
     return (
         <div>
             <QueryBar />
+            <Event />
         </div>
     )
 }

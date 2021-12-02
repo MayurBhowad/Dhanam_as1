@@ -49,7 +49,7 @@ let data = [
 const Event = () => {
     return (
         <div className='card-deck'>
-            {data.map(car => (<Card key={car.key} />))}
+            {data.map(car => (<Card key={car.key} card={car} />))}
         </div>
     )
 }
