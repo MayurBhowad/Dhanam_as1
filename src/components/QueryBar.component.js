@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const QueryBar = (props) => {
     const { division } = props;
+
+    const [customDurationShow, setCustomDurationShow] = useState(false)
+
 
     return (
         <div>
@@ -45,15 +48,18 @@ const QueryBar = (props) => {
             <hr />
             <div className="select-duration">
                 <div className='nor'>
-                    <input type="checkbox" id="selectDate" name="selectDate" value="selectDate" />
+                    <input type="checkbox" id="selectDate" name="selectDate" checked={customDurationShow} onChange={e => setCustomDurationShow(!customDurationShow)} />
                     <label htmlFor="selectDate"> Select Dates for duration</label><br></br>
                 </div>
-                <div className="calendar">
-                    <input type="date" name="startdate" id="startdate" />
-                    <p>To</p>
-                    <input type="date" name="startdate" id="startdate" />
-                </div>
+                {customDurationShow ?
+                    (<div className="calendar">
+                        <input type="date" name="startdate" id="startdate" />
+                        <p>To</p>
+                        <input type="date" name="startdate" id="startdate" />
+                    </div>) : null
+                }
             </div>
+            <hr />
         </div >
     )
 }

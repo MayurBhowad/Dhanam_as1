@@ -51,7 +51,7 @@ const Event = (props) => {
 
     return (
         <div className='card-deck'>
-            {allData.map(car => (<Card key={car.key} card={car} />))}
+            {allData.map((car, i) => (<Card key={i} card={car} />))}
         </div>
     )
 }
