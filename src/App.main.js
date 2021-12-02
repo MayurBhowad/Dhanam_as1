@@ -6,18 +6,30 @@ import { getData } from './services/onlineData.service';
 const App = () => {
     const [data, setData] = useState({})
     const [division, setDivision] = useState([])
+    const [allData, setAllData] = useState([]);
+
+    useEffect(() => {
+        division.map(div => {
+            data[div].events.map(el => setAllData(prevState => [...prevState, el]))
+        })
+    }, [data])
 
     useEffect(() => {
         getData().then(arr => {
-            setData(arr.data);
             setDivision(Object.keys(arr.data))
+            setData(arr.data);
         })
     }, [])
+    console.log(allData);
 
     return (
         <div>
-            <QueryBar />
-            <Event />
+            <QueryBar
+                division={division}
+            />
+            <Event
+                allData={allData}
+            />
         </div>
     )
 }

@@ -46,10 +46,12 @@ let data = [
     }
 ]
 
-const Event = () => {
+const Event = (props) => {
+    const { allData } = props;
+
     return (
         <div className='card-deck'>
-            {data.map(car => (<Card key={car.key} card={car} />))}
+            {allData.map(car => (<Card key={car.key} card={car} />))}
         </div>
     )
 }

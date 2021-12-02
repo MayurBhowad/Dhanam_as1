@@ -129,7 +129,7 @@ label{
 .card-deck{
   margin: 1rem 2rem;
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 20px;
   grid-template-columns: repeat(4, 1fr);
 }
 
@@ -146,19 +146,22 @@ label{
 cursor: pointer;
   
   h1{
+    margin: .5rem 0;
     font-size: 24px;
   }
   p{
+    margin: .5rem 0;
     font-size: 15px;
     color: #8d8d8d;
   }
   h4{
+    margin: .5rem 0;
     font-size: 18px;
   }
 }
 
 .bunting{
-  background-image: url(https://i.pinimg.com/originals/c5/71/d6/c571d6cf5434f95f57bde9904053959d.png);
+  background-image: url(https://www.sprinklesforbreakfast.com/wp-content/themes/sprinkle/assets/images/dot-pattern-2.svg);
   Background-size: cover;
 }
 

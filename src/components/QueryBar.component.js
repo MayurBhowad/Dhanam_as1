@@ -1,24 +1,18 @@
 import React from 'react'
 
-const QueryBar = () => {
+const QueryBar = (props) => {
+    const { division } = props;
+
     return (
         <div>
             <div className='qerybar-div'>
                 <div className="division-selector">
-                    <div className='eng'>
-                        <input type="checkbox" id="england-and-wales" name="england-and-wales" value="england-and-wales" />
-                        <label className='label-active' htmlFor="england-and-wales"> england-and-wales</label><br></br>
-                    </div>
-
-                    <div className='sco'>
-                        <input type="checkbox" id="scotland" name="scotland" value="scotland" />
-                        <label htmlFor="scotland"> scotland</label><br></br>
-                    </div>
-
-                    <div className='nor'>
-                        <input type="checkbox" id="northern-ireland" name="northern-ireland" value="northern-ireland" />
-                        <label htmlFor="northern-ireland"> northern-ireland</label><br></br>
-                    </div>
+                    {division.map(div => (
+                        <div key={div} className='eng'>
+                            <input type="checkbox" id={div} name={div} value={div} />
+                            <label className='label-active' htmlFor={div}>{div}</label><br></br>
+                        </div>
+                    ))}
                 </div>
             </div>
             <hr />
