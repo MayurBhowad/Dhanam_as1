@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import QueryBar from './components/QueryBar.component';
 import { getData } from './services/onlineData.service';
 
 const App = () => {
@@ -14,7 +15,7 @@ const App = () => {
 
     return (
         <div>
-            <p>App works!</p>
+            <QueryBar />
         </div>
     )
 }

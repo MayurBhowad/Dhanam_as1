@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
-$color: red;
+// $color: red;
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -24,6 +24,85 @@ li, a{
 }
 
 
-p {
-  color: $color;
+
+input[type="date"]{
+  background-color: #0080ff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
 }
+
+::-webkit-calendar-picker-indicator{
+  background-color: #fff;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+label{
+  color:#8d8d8d;
+}
+
+.label-active{
+  color: #000;
+}
+
+
+/** query bar 8888888888888888888 */
+.qerybar-div{
+  padding: 1rem;
+}
+
+.division-selector{
+  display: flex;
+  justify-content: space-around;
+}
+
+.qerybar-sorter{
+  display: flex;
+  justify-content: space-around;
+}
+
+.select-duration{
+  text-align: center;
+}
+
+.select-duration .calendar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    input{
+      margin: 0 1rem;
+    }
+}
+
+
+
+/**=====CArdt Comp===================================== */
+.card-deck{
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.card1{
+  border: 1px solid #000;
+  
+  h1{
+    font-size: 24px;
+  }
+  p{
+    font-size: 15px;
+    color: #8d8d8d;
+  }
+  h4{
+    font-size: 18px;
+  }
+}
+
+
+/**=====CArdt Comp end===================================== */
