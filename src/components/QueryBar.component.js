@@ -9,6 +9,7 @@ const QueryBar = (props) => {
     const [isLastWeekSelected, setIsLastWeekSelected] = useState(false)
     const [isLastDaySelected, setIsLastDaySelected] = useState(false)
 
+
     const settingLastDays = (input) => {
         setIsLastMonthSelected(false)
         setIsLastWeekSelected(false)
@@ -78,10 +79,10 @@ const QueryBar = (props) => {
             <div className="querybar-sorter-mob">
                 <label htmlFor="qb-date">Choose Duration</label>
 
-                <select id="qb-date">
-                    <option value="30">Last month</option>
-                    <option value="7">Last week</option>
-                    <option value="1">Yesturday</option>
+                <select id="qb-date" onChange={e => settingLastDays(e.target.value)}>
+                    <option value="month">Last month</option>
+                    <option value="week">Last week</option>
+                    <option value="day">Yesturday</option>
                 </select>
             </div>
             <div style={{ "text-align": 'center', "margin": "1rem 0 0 0" }} >OR</div>
@@ -93,9 +94,9 @@ const QueryBar = (props) => {
                 </div>
                 {customDurationShow ?
                     (<div className="calendar">
-                        <input type="date" name="startdate" id="startdate" />
+                        <input type="date" name="startdate" id="startdate" onChange={e => setDate1(new Date(e.target.value))} />
                         <p>To</p>
-                        <input type="date" name="startdate" id="startdate" />
+                        <input type="date" name="startdate" id="startdate" onChange={e => setDate2(new Date(e.target.value))} />
                     </div>) : null
                 }
             </div>
@@ -106,7 +107,3 @@ const QueryBar = (props) => {
 
 export default QueryBar
 
-function settingDates(setDate1, setDate2, days) {
-    setDate1(moment().subtract(30, 'days')._d)
-    setDate2(new Date)
-}

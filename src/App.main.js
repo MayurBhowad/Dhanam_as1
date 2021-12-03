@@ -21,8 +21,6 @@ const App = () => {
             setData(arr.data);
         })
     }, [])
-    console.log(date1);
-    console.log(date2);
 
     return (
         <div>
@@ -46,8 +44,7 @@ function settingAllData(division, data, date1, date2, setAllData) {
     division.map(div => {
         data[div].events.map(el => {
             if (date1 !== undefined || date2 !== undefined) {
-                if (date1 < new Date(el.date) && date2 > new Date(el.date)) {
-                    console.log("setting with dates");
+                if (date1 < new Date(el.date) && date2 > new Date(el.date) || date1 > new Date(el.date) && date2 < new Date(el.date)) {
                     setAllData(prevState => [...prevState, el])
                 }
             } else {
