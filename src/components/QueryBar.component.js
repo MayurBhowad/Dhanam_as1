@@ -26,6 +26,9 @@ const QueryBar = (props) => {
                 break;
 
             default:
+                setIsLastMonthSelected(false)
+                setIsLastWeekSelected(false)
+                setIsLastDaySelected(false)
                 break;
         }
     }
@@ -42,6 +45,10 @@ const QueryBar = (props) => {
         if (isLastDaySelected) {
             setDate1(moment().subtract(1, "day")._d)
             setDate2(new Date)
+        }
+        if (!isLastMonthSelected && !isLastWeekSelected && !isLastDaySelected) {
+            setDate1(undefined)
+            setDate2(undefined)
         }
     }, [isLastMonthSelected, isLastWeekSelected, isLastDaySelected])
 
@@ -62,17 +69,17 @@ const QueryBar = (props) => {
             <hr />
             <div className='qerybar-sorter'>
                 <div className='eng'>
-                    <input type="checkbox" id="lastmonth" name="lastmonth" checked={isLastMonthSelected} onChange={() => settingLastDays('month')} />
+                    <input type="checkbox" id="lastmonth" name="lastmonth" checked={isLastMonthSelected} onChange={() => isLastMonthSelected ? settingLastDays() : settingLastDays('month')} />
                     <label htmlFor="lastmonth"> Last Month</label><br></br>
                 </div>
 
                 <div className='sco'>
-                    <input type="checkbox" id="lastweek" name="lastweek" checked={isLastWeekSelected} onChange={() => settingLastDays('week')} />
+                    <input type="checkbox" id="lastweek" name="lastweek" checked={isLastWeekSelected} onChange={() => isLastWeekSelected ? settingLastDays() : settingLastDays('week')} />
                     <label htmlFor="lastweek"> Last week</label><br></br>
                 </div>
 
                 <div className='nor'>
-                    <input type="checkbox" id="yesturday" name="yesturday" checked={isLastDaySelected} onChange={() => settingLastDays('day')} />
+                    <input type="checkbox" id="yesturday" name="yesturday" checked={isLastDaySelected} onChange={() => isLastDaySelected ? settingLastDays() : settingLastDays('day')} />
                     <label htmlFor="yesturday"> Yesturday</label><br></br>
                 </div>
             </div>
