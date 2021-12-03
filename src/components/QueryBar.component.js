@@ -102,7 +102,7 @@ const QueryBar = (props) => {
                 {customDurationShow ?
                     (<div className="calendar">
                         <input type="date" name="startdate" id="startdate" onChange={e => setDate1(new Date(e.target.value))} />
-                        <p>Too</p>
+                        <p>To</p>
                         <input type="date" name="startdate" id="startdate" onChange={e => setDate2(new Date(e.target.value))} />
                     </div>) : null
                 }
