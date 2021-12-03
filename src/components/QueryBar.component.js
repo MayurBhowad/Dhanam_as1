@@ -1,9 +1,49 @@
-import React, { useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
+import moment from 'moment';
 
 const QueryBar = (props) => {
-    const { division } = props;
+    const { division, setDate1, setDate2 } = props;
 
     const [customDurationShow, setCustomDurationShow] = useState(false)
+    const [isLastMonthSelected, setIsLastMonthSelected] = useState(false)
+    const [isLastWeekSelected, setIsLastWeekSelected] = useState(false)
+    const [isLastDaySelected, setIsLastDaySelected] = useState(false)
+
+    const settingLastDays = (input) => {
+        setIsLastMonthSelected(false)
+        setIsLastWeekSelected(false)
+        setIsLastDaySelected(false)
+        switch (input) {
+            case 'month':
+                setIsLastMonthSelected(true);
+                break;
+            case 'week':
+                setIsLastWeekSelected(true);
+                break;
+            case 'day':
+                setIsLastDaySelected(true);
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    useEffect(() => {
+        if (isLastMonthSelected) {
+            setDate1(moment().subtract(1, "month")._d)
+            setDate2(new Date)
+        }
+        if (isLastWeekSelected) {
+            setDate1(moment().subtract(1, "week")._d)
+            setDate2(new Date)
+        }
+        if (isLastDaySelected) {
+            setDate1(moment().subtract(1, "day")._d)
+            setDate2(new Date)
+        }
+    }, [isLastMonthSelected, isLastWeekSelected, isLastDaySelected])
+
 
 
     return (
@@ -21,17 +61,17 @@ const QueryBar = (props) => {
             <hr />
             <div className='qerybar-sorter'>
                 <div className='eng'>
-                    <input type="checkbox" id="lastmonth" name="lastmonth" value="lastmonth" />
+                    <input type="checkbox" id="lastmonth" name="lastmonth" checked={isLastMonthSelected} onChange={() => settingLastDays('month')} />
                     <label htmlFor="lastmonth"> Last Month</label><br></br>
                 </div>
 
                 <div className='sco'>
-                    <input type="checkbox" id="lastweek" name="lastweek" value="lastweek" />
+                    <input type="checkbox" id="lastweek" name="lastweek" checked={isLastWeekSelected} onChange={() => settingLastDays('week')} />
                     <label htmlFor="lastweek"> Last week</label><br></br>
                 </div>
 
                 <div className='nor'>
-                    <input type="checkbox" id="yesturday" name="yesturday" value="yesturday" />
+                    <input type="checkbox" id="yesturday" name="yesturday" checked={isLastDaySelected} onChange={() => settingLastDays('day')} />
                     <label htmlFor="yesturday"> Yesturday</label><br></br>
                 </div>
             </div>
@@ -65,3 +105,8 @@ const QueryBar = (props) => {
 }
 
 export default QueryBar
+
+function settingDates(setDate1, setDate2, days) {
+    setDate1(moment().subtract(30, 'days')._d)
+    setDate2(new Date)
+}
