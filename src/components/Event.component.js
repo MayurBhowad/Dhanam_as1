@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from './smalls/card.component'
+import Card from './smalls/Card.component'
 
 let data = [
     {
